@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Dropdown, InputText } from "../../component";
+import { useLoadingContext } from "../../context";
 import {
   GetQuestions,
   GetTotalQuestions,
   useCategoryList,
 } from "../../services/category";
-import { difficultyData, typeData } from "./constant";
+import { setWithExpiry, ToastMsg } from "../../utils";
+import { codes, difficultyData, typeData } from "./constant";
 
 export const Category = () => {
-  const { isFetching, data, isLoading } = useCategoryList();
+  const navigate = useNavigate();
+  const { isFetching, data } = useCategoryList();
+  const { setLoading } = useLoadingContext();
 
   const [categoryData, setCategoryData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState({ name: "select" });
@@ -38,6 +43,7 @@ export const Category = () => {
   };
 
   const onClickCreate = async () => {
+    setLoading(true);
     const body = {
       category: selectedCategory.id,
       difficulty: selectedDifficulty.value,
@@ -46,7 +52,18 @@ export const Category = () => {
     };
     console.log(body);
     const res = await GetQuestions(body);
-    console.log("RES", res);
+    if (res.response_code === 0) {
+      console.log("RES", res);
+      setWithExpiry("quiz", res.results);
+      setLoading(false);
+      navigate("/quiz");
+    } else {
+      ToastMsg(
+        codes.find((i) => i.Code === res.response_code).message,
+        "error"
+      );
+      setLoading(false);
+    }
   };
 
   return (

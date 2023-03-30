@@ -10,7 +10,7 @@ const MainContainer = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen min-w-full flex flex-col justify-between pb-20 bg-background">
+    <div className="min-h-screen min-w-full flex flex-col justify-between bg-background">
       <div className="w-full">
         <Header />
         <div className={`flex flex-col px-5 py-4 pt-24 place-items-center`}>
