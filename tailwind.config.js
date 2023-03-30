@@ -20,7 +20,7 @@ export default {
         primary: "rgba(245, 119, 2, 1)",
         primaryBg: "rgba(254, 245, 232, 1)",
         primaryCard: "rgba(253, 227, 204, 1)",
-        error: "#E06D03",
+        error: "rgba(200,0,0,1)",
         lineColor: "rgba(252, 185, 94, 1)",
         greyOut: "rgba(146, 144, 142, 1)",
         background: "rgba(250, 250, 250, 1)",

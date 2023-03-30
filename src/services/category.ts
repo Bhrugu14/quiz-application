@@ -4,11 +4,11 @@ import { getWithExpiry } from "../utils";
 
 const BASE_URL = BaseUrl;
 
-export function useDonationList() {
+export function useCategoryList() {
   return useQuery(
-    ["donation-list"],
+    ["category-list"],
     async () =>
-      await fetch(`${BASE_URL}/api/donation-list`)
+      await fetch(`${BASE_URL}/api_category.php`)
         .then((response) => response.json())
         .then((json) => json)
         .catch((err) => err)
@@ -26,17 +26,17 @@ export function useOrgList() {
   );
 }
 
-export const GetEventsList = async (data: any) => {
-  return await fetch(`${BASE_URL}/api/event-list`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: getWithExpiry("token")
-        ? "Bearer " + getWithExpiry("token")
-        : "",
-    },
-    body: JSON.stringify(data),
-  })
+export const GetTotalQuestions = async (id: any) => {
+  return await fetch(`${BASE_URL}/api_count.php?category=${id}`)
+    .then((response) => response.json())
+    .then((json) => json)
+    .catch((err) => err);
+};
+
+export const GetQuestions = async (body: any) => {
+  return await fetch(
+    `${BASE_URL}/api.php?amount=${body.amount}&category=${body.category}&difficulty=${body.difficulty}&type=${body.type}`
+  )
     .then((response) => response.json())
     .then((json) => json)
     .catch((err) => err);

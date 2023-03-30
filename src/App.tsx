@@ -22,13 +22,13 @@ export const NoInternet = () => {
     <div
       className={`fixed top-0 w-screen bg-red-900/90 z-[100] pointer-events-none flex items-center justify-center transition-all`}
     >
-      <text
+      <label
         className={`text-xs text-white transition-all ${
           !isOnline ? "flex" : "hidden"
         }`}
       >
         offline
-      </text>
+      </label>
     </div>
   );
 };

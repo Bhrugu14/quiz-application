@@ -38,7 +38,7 @@ export const Button = ({
       id={id}
       onClick={onClick}
       disabled={disabled}
-      className={`${backgroundColor} py-4 w-full rounded-xl ${
+      className={`${backgroundColor} py-3 w-full rounded-xl ${
         disabled ? "pointer-events-none opacity-60" : "shadow-xl"
       } flex justify-center active:scale-95 ${extraClass || ""}`}
     >
