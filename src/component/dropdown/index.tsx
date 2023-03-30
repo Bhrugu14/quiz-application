@@ -43,7 +43,7 @@ export const Dropdown = ({
             <>
               {title && (
                 <Listbox.Label
-                  className={`block text-md font-bold text-primary px-2 drop-shadow-xl`}
+                  className={`block text-md font-bold text-primary px-2 drop-shadow-2xl shadow-primary`}
                 >
                   {title}
                 </Listbox.Label>

@@ -17,9 +17,9 @@ export default {
         inter: "Inter",
       },
       colors: {
-        primary: "rgba(245, 119, 2, 1)",
-        primaryBg: "rgba(254, 245, 232, 1)",
-        primaryCard: "rgba(253, 227, 204, 1)",
+        primary: "rgb(14 116 144)",
+        primaryBg: "rgb(236 254 255)",
+        primaryCard: "rgb(165 243 252)",
         error: "rgba(200,0,0,1)",
         lineColor: "rgba(252, 185, 94, 1)",
         greyOut: "rgba(146, 144, 142, 1)",

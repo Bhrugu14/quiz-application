@@ -8,6 +8,7 @@ interface ButtonProps {
   id?: string;
   secondary?: boolean;
   extraClass?: string;
+  titleClassName?: string;
   white?: boolean;
 }
 
@@ -20,11 +21,12 @@ export const Button = ({
   secondary,
   extraClass,
   white,
+  titleClassName,
 }: ButtonProps) => {
   let backgroundColor = white
     ? "bg-primaryBg"
     : secondary
-    ? "bg-gray-300"
+    ? "bg-primaryBg"
     : "bg-primary";
 
   let buttonText = white
@@ -40,11 +42,13 @@ export const Button = ({
       disabled={disabled}
       className={`${backgroundColor} py-3 w-full rounded-xl ${
         disabled ? "pointer-events-none opacity-60" : "shadow-xl"
-      } flex justify-center items-center active:scale-95 ${extraClass || ""}`}
+      } flex justify-center items-center active:scale-95 ${
+        secondary && "border border-primary"
+      } ${extraClass || ""}`}
     >
       <div className="flex">
         <label
-          className={`z-0 font-semibold text-base cursor-pointer ${buttonText}`}
+          className={`z-0 font-semibold text-base cursor-pointer ${buttonText} ${titleClassName}`}
         >
           {title}
         </label>
