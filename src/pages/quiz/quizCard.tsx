@@ -26,7 +26,7 @@ export const QuizCard = ({
       leaveTo="translate-x-[100vw]"
     >
       <div className="bg-primaryCard drop-shadow-xl rounded-lg p-6 mx-4 sm:mx-auto min-w-2xl shadow-primary transition-all">
-        <h1 className="text-lg font-bold mb-4 drop-shadow-xl shadow-primary">
+        <h1 className="text-lg font-bold mb-4 drop-shadow-xl shadow-primary ">
           {i.question}
         </h1>
         <div className="grid grid-cols-2 gap-2">
@@ -50,9 +50,9 @@ export const QuizCard = ({
               extraClass={
                 i.selectedAnswer
                   ? i.correct_answer === o
-                    ? "border-green-700 bg-green-700 pointer-events-none"
+                    ? "border-green-700 bg-green-900 pointer-events-none"
                     : i.selectedAnswer === o
-                    ? "border-red-700 bg-red-700 pointer-events-none"
+                    ? "border-red-700 bg-red-900 pointer-events-none"
                     : "pointer-events-none"
                   : ""
               }
