@@ -16,7 +16,10 @@ export const Category = () => {
   const { setLoading } = useLoadingContext();
 
   const [categoryData, setCategoryData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState({ name: "select" });
+  const [selectedCategory, setSelectedCategory] = useState({
+    name: "select",
+    id: undefined,
+  });
   const [selectedDifficulty, setSelectedDifficulty] = useState(
     difficultyData[0]
   );

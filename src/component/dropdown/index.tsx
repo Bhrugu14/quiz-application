@@ -4,13 +4,14 @@ import IcDownArrow from "../../assets/icons/ic-dropdown.svg";
 
 interface DropdownItemProps {
   name?: string;
+  value?: string;
   id?: number;
 }
 
 interface DropdownProps {
-  items: DropdownItemProps[];
-  value: DropdownItemProps | string;
-  onChange?(value: DropdownItemProps): void;
+  items: any[];
+  value: any | string;
+  onChange?(value: any): void;
   title?: string;
   showValue?: string;
   disabled?: boolean;
