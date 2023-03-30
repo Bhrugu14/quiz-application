@@ -44,15 +44,15 @@ export const QuizCard = ({
                     ? "text-white"
                     : i.selectedAnswer === o
                     ? "text-white"
-                    : "text-title"
-                  : "text-title"
+                    : "text-black"
+                  : "text-black"
               }
               extraClass={
                 i.selectedAnswer
                   ? i.correct_answer === o
-                    ? "border-green-700 bg-green-900 pointer-events-none"
+                    ? "border-success bg-success pointer-events-none"
                     : i.selectedAnswer === o
-                    ? "border-red-700 bg-red-900 pointer-events-none"
+                    ? "border-red-500 bg-red-500 pointer-events-none"
                     : "pointer-events-none"
                   : ""
               }
