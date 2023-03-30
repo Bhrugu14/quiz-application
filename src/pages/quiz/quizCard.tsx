@@ -50,9 +50,9 @@ export const QuizCard = ({
               extraClass={
                 i.selectedAnswer
                   ? i.correct_answer === o
-                    ? "border-2 border-green-700 bg-green-700 pointer-events-none"
+                    ? "border-green-700 bg-green-700 pointer-events-none"
                     : i.selectedAnswer === o
-                    ? "border-2 border-red-700 bg-red-700 pointer-events-none"
+                    ? "border-red-700 bg-red-700 pointer-events-none"
                     : "pointer-events-none"
                   : ""
               }
