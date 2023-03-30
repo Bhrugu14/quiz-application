@@ -44,8 +44,8 @@ export const QuizCard = ({
                     ? "text-white"
                     : i.selectedAnswer === o
                     ? "text-white"
-                    : ""
-                  : ""
+                    : "text-title"
+                  : "text-title"
               }
               extraClass={
                 i.selectedAnswer
