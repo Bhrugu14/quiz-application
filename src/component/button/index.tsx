@@ -40,7 +40,7 @@ export const Button = ({
       disabled={disabled}
       className={`${backgroundColor} py-3 w-full rounded-xl ${
         disabled ? "pointer-events-none opacity-60" : "shadow-xl"
-      } flex justify-center active:scale-95 ${extraClass || ""}`}
+      } flex justify-center items-center active:scale-95 ${extraClass || ""}`}
     >
       <div className="flex">
         <label
