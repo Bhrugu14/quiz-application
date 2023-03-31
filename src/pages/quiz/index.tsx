@@ -1,17 +1,24 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { getWithExpiry } from "../../utils";
-import { QuizCard } from "./quizCard";
-import lottie from "lottie-web";
-import { Transition } from "@headlessui/react";
-import { Button } from "../../component";
 import { useNavigate } from "react-router-dom";
+import { Transition } from "@headlessui/react";
+
+import { Button } from "../../component";
+import { useHeaderContext } from "../../context";
+import { QuizCard } from "./quizCard";
+import { getWithExpiry } from "../../utils";
 
 export const Quiz = () => {
   const navigate = useNavigate();
+  const headerCtx = useHeaderContext();
+
   const [quizzes, setQuiz] = useState([]);
   const [isCompleted, setIsCompleted] = useState(false);
   const [extra, setExtra] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+  useEffect(() => {
+    headerCtx.setHeader("Quiz");
+  });
 
   const handleAnswer = (index, answer) => {
     quizzes[index].selectedAnswer = answer;
@@ -53,15 +60,15 @@ export const Quiz = () => {
   // min-h-[calc(100vh-112px)]
 
   return (
-    <div className=" relative flex w-full h-[calc(100vh-112px)] overflow-hidden bg-primaryBg flex-col items-center justify-center">
+    <div className=" relative flex w-full h-[calc(100vh-112px)] overflow-hidden bg-primaryBg flex-col items-center justify-center px-5">
       {quizzes.length > 0 && !isCompleted && (
-        <div className="fixed top-16 grid grid-cols-1 sm:grid-cols-2 w-full bg-primary rounded-b-xl text-md shadow-xl z-10">
+        <div className="fixed top-16 grid grid-cols-1 sm:grid-cols-2 w-full bg-primary rounded-b-xl text-md shadow-xl">
           <label className="flex items-center justify-center text-center py-1 text-white">
             {"Current Score:"}
             <span className="font-bold pl-1">{`${
               quizzes.filter((i) => i.correct).length
             }/${quizzes.filter((i) => i.selectedAnswer).length}`}</span>
-            <span className="text-xs ml-1">
+            <span className="text-[10px] ml-1">
               {"(correct answer/attended questions)"}
             </span>
           </label>
@@ -71,7 +78,7 @@ export const Quiz = () => {
             <span className="font-bold pl-1">{`${
               quizzes.filter((i) => i.correct).length
             }/${quizzes.length}`}</span>
-            <span className="text-xs ml-1">
+            <span className="text-[10px] ml-1">
               {"(correct answer/total questions)"}
             </span>
           </label>

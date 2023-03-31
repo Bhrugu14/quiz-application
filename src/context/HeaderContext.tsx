@@ -16,7 +16,7 @@ export const HeaderContext = createContext<HeaderContextTypes>(
 );
 
 export const HeaderContextProvider = ({ children }: HeaderContextProps) => {
-  const [headerTitle, setHeader] = useState("Quiz Category");
+  const [headerTitle, setHeader] = useState("Quiz");
   const [isBack, setIsBack] = useState(false);
 
   const contextValue = {

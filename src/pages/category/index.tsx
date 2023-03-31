@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Dropdown, InputText } from "../../component";
-import { useLoadingContext } from "../../context";
+import { useHeaderContext, useLoadingContext } from "../../context";
 import {
   GetQuestions,
   GetTotalQuestions,
@@ -12,6 +12,7 @@ import { codes, difficultyData, typeData } from "./constant";
 
 export const Category = () => {
   const navigate = useNavigate();
+  const headerCtx = useHeaderContext();
   const { isFetching, data } = useCategoryList();
   const { setLoading } = useLoadingContext();
 
@@ -28,6 +29,10 @@ export const Category = () => {
   const [maxQuestionsErr, setMaxQuestionsErr] = useState<boolean | string>(
     false
   );
+
+  useEffect(() => {
+    headerCtx.setHeader("Select Category");
+  });
 
   useEffect(() => {
     if (!isFetching) {
@@ -63,7 +68,7 @@ export const Category = () => {
   };
 
   return (
-    <div className="flex w-full min-w-screen h-full max-w-2xl flex-col">
+    <div className="flex w-full min-w-screen h-full max-w-2xl flex-col px-5">
       <label className="text-title font-bold text-lg text-center mb-10">
         Select from options below to generate questionnaire
       </label>
