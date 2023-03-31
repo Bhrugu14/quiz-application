@@ -1,7 +1,7 @@
 import React, { Fragment, useMemo, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Button } from "../../component";
-import { ShuffleArray } from "../../utils";
+import { ConvertString, ShuffleArray } from "../../utils";
 
 export const QuizCard = ({
   i,
@@ -14,26 +14,27 @@ export const QuizCard = ({
     () => ShuffleArray([...i.incorrect_answers, i.correct_answer]),
     [i]
   );
+
   return (
     <Transition
       as={Fragment}
       show={currentQuestionIndex == k}
-      enter="transform ease-in-out duration-500 delay-500 sm:duration-700 sm:delay-700"
-      enterFrom="translate-y-[100vh]"
+      enter="transform ease-in-out duration-500 delay-500 sm:duration-500 sm:delay-700"
+      enterFrom="translate-y-[50vh]"
       enterTo="translate-y-0"
       leave="transform ease-in-out duration-500 sm:duration-700"
       leaveFrom="translate-x-0"
       leaveTo="translate-x-[100vw]"
     >
-      <div className="bg-primaryCard drop-shadow-xl rounded-lg p-6 mx-4 sm:mx-auto min-w-2xl shadow-primary transition-all">
+      <div className="bg-primaryCard drop-shadow-xl rounded-lg p-6 mx-4 sm:mx-auto min-w-xl shadow-primary transition-all">
         <h1 className="text-lg font-bold mb-4 drop-shadow-xl shadow-primary ">
-          {k + 1 + ": " + i.question}
+          {k + 1 + ": " + ConvertString(i.question)}
         </h1>
         <div className="grid grid-cols-2 gap-2">
           {optionArray.map((o, l) => (
             <Button
               secondary
-              title={o}
+              title={ConvertString(o)}
               key={o + l}
               onClick={() => {
                 handleAnswer(o);

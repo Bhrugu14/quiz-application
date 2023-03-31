@@ -55,7 +55,7 @@ export const Quiz = () => {
   return (
     <div className=" relative flex w-full h-[calc(100vh-112px)] overflow-hidden bg-primaryBg flex-col items-center justify-center">
       {quizzes.length > 0 && !isCompleted && (
-        <div className="fixed top-16 grid grid-cols-1 sm:grid-cols-2 w-full bg-primary rounded-b-xl text-md shadow-xl">
+        <div className="fixed top-16 grid grid-cols-1 sm:grid-cols-2 w-full bg-primary rounded-b-xl text-md shadow-xl z-10">
           <label className="flex items-center justify-center text-center py-1 text-white">
             {"Current Score:"}
             <span className="font-bold pl-1">{`${
