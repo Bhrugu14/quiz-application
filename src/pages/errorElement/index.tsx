@@ -18,7 +18,7 @@ export const ErrorElement = () => {
           fill="none"
           stroke="currentColor"
           stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
           stroke-width="2"
           className="w-4 h-4 animate-ping ml-2"
           viewBox="0 0 24 24"

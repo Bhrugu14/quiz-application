@@ -12,9 +12,7 @@ export const Header = ({ auth = false }) => {
 
   return (
     <header
-      className={`h-16 min-w-full ${
-        auth ? "bg-primary/90" : "bg-primary"
-      } flex justify-between items-center px-5 top-0 z-30 fixed shadow-xl`}
+      className={`h-16 min-w-full bg-primary flex justify-between items-center px-5 top-0 z-30 fixed shadow-xl`}
     >
       <div className="flex flex-1">
         {isBack ? (

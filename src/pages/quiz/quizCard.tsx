@@ -27,7 +27,7 @@ export const QuizCard = ({
     >
       <div className="bg-primaryCard drop-shadow-xl rounded-lg p-6 mx-4 sm:mx-auto min-w-2xl shadow-primary transition-all">
         <h1 className="text-lg font-bold mb-4 drop-shadow-xl shadow-primary ">
-          {i.question}
+          {k + 1 + ": " + i.question}
         </h1>
         <div className="grid grid-cols-2 gap-2">
           {optionArray.map((o, l) => (

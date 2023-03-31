@@ -38,11 +38,6 @@ export const Category = () => {
   const OnSelectCategory = async (e) => {
     setSelectedCategory(e);
     const res = await GetTotalQuestions(e.id);
-    console.log("res", res);
-
-    if (res.category_question_count) {
-      console.log("RES", res.category_question_count.total_question_count);
-    }
   };
 
   const onClickCreate = async () => {
@@ -53,10 +48,8 @@ export const Category = () => {
       type: selectedType.value,
       amount: maxQuestions.trim(),
     };
-    console.log(body);
     const res = await GetQuestions(body);
     if (res.response_code === 0) {
-      console.log("RES", res);
       setWithExpiry("quiz", res.results);
       setLoading(false);
       navigate("/quiz");
