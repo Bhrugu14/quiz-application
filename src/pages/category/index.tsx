@@ -70,7 +70,7 @@ export const Category = () => {
   return (
     <div className="flex w-full min-w-screen h-full max-w-2xl flex-col px-5">
       <label className="text-title font-bold text-lg text-center mb-10">
-        Select from options below to generate questionnaire
+        Select from options below to generate quiz
       </label>
       <Dropdown
         disabled={categoryData.length === 0}
